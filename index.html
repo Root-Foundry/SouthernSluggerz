@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Southern Sluggerz - 7U Baseball Team</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1><img src="pictures/image.png" alt="Southern Sluggerz Logo" height="50" width="50"></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#coaches">Coaches</a></li>
+                <li><a href="#players">Players</a></li>
+                <li><a href="#apparel">Apparel</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Southern Sluggerz Baseball</h2>
+            <p class="hero-tagline">Building character, one swing at a time</p>
+            <p class="hero-description">We are more than just a 7U baseball team—we are a family dedicated to developing young athletes into confident players and outstanding individuals. Our focus is on player development, teamwork, discipline, sportsmanship, and building lifelong friendships in a positive, encouraging environment.</p>
+            <a href="#about" class="hero-button">Learn More About Us</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">Who We Are</h2>
+            <p class="about-intro">Southern Sluggerz Baseball is building the future of youth baseball one athlete at a time. Our mission isn't simply to win games—it's to develop confident, respectful, and hardworking young men who love the game of baseball, instilling values that extend far beyond the field.</p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">⚾</div>
+                    <h3>Player-First Approach</h3>
+                    <p>We prioritize the individual growth and well-being of each athlete, ensuring a supportive and engaging environment for all skill levels.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🏆</div>
+                    <h3>Character Development</h3>
+                    <p>Building not just athletes but well-rounded young men with discipline, respect, and a strong work ethic that extends beyond the field.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">👥</div>
+                    <h3>Family Environment</h3>
+                    <p>Creating a positive, encouraging atmosphere where players build lifelong friendships and develop a genuine love for the game.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">📈</div>
+                    <h3>Comprehensive Training</h3>
+                    <p>From fundamental skills to game strategy, our program covers all aspects of baseball development tailored to 7U players.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coaches Section -->
+    <section id="coaches" class="coaches-section">
+        <div class="container">
+            <h2 class="section-title">Meet Our Coaching Staff</h2>
+            <p class="section-intro">Our team of experienced coaches utilizes modern practice techniques to help players refine their skills and understand the game at a deeper level.</p>
+            
+            <div class="coaches-lineup">
+                <div class="coach-position">
+                    <div class="coach-circle">
+                        <img src="pictures/coach1.jpg" alt="Head Coach" onerror="this.style.display='none'">
+                    </div>
+                    <div class="coach-info">
+                        <h3>Coach Name</h3>
+                        <p class="coach-title">HEAD COACH</p>
+                        <p class="coach-bio">With over 10 years of coaching experience, our head coach brings passion and expertise to develop young talent.</p>
+                    </div>
+                </div>
+
+                <div class="coach-position">
+                    <div class="coach-circle">
+                        <img src="pictures/coach2.jpg" alt="Assistant Coach" onerror="this.style.display='none'">
+                    </div>
+                    <div class="coach-info">
+                        <h3>Coach Name</h3>
+                        <p class="coach-title">ASSISTANT COACH</p>
+                        <p class="coach-bio">Dedicated to teaching fundamentals and building confidence in every young player.</p>
+                    </div>
+                </div>
+
+                <div class="coach-position">
+                    <div class="coach-circle">
+                        <img src="pictures/coach3.jpg" alt="Assistant Coach" onerror="this.style.display='none'">
+                    </div>
+                    <div class="coach-info">
+                        <h3>Coach Name</h3>
+                        <p class="coach-title">ASSISTANT COACH</p>
+                        <p class="coach-bio">Focuses on skill development and creating a positive, fun learning environment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Players Section -->
+    <section id="players" class="players-section">
+        <div class="container">
+            <h2 class="section-title">Meet Our Team</h2>
+            <p class="section-intro">Our 7U team is made up of dedicated young athletes who embody the values of teamwork, sportsmanship, and a love for baseball.</p>
+            
+            <div class="baseball-diamond-container">
+                <!-- Baseball Diamond -->
+                <div class="diamond-wrapper">
+                    <div class="baseball-field" style="background-image: url('baseball-field.svg');">
+                        <!-- Player positions on the field -->
+                        <div class="field-player" data-position="cf" 
+                             data-player-name="Player Name"
+                             data-player-age="7"
+                             data-player-number="1"
+                             data-player-team="Atlanta Braves"
+                             data-player-position="Center Field"
+                             data-player-bats="Right"
+                             data-player-throws="Right"
+                             data-player-photo="pictures/player-cf.jpg">
+                            <div class="player-avatar">
+                                <img src="pictures/player-cf.jpg" alt="Center Field" onerror="this.style.display='none'">
+                            </div>
+                            <p class="player-name">PLAYER NAME</p>
+                            <p class="position-label">CF</p>
+                        </div>
+
+                        <div class="field-player" data-position="lf"
+                             data-player-name="Player Name"
+                             data-player-age="7"
+                             data-player-number="2"
+                             data-player-team="Los Angeles Dodgers"
+                             data-player-position="Left Field"
+                             data-player-bats="Left"
+                             data-player-throws="Left"
+                             data-player-photo="pictures/player-lf.jpg">
+                            <div class="player-avatar">
+                                <img src="pictures/player-lf.jpg" alt="Left Field" onerror="this.style.display='none'">
+                            </div>
+                            <p class="player-name">PLAYER NAME</p>
+                            <p class="position-label">LF</p>
+                        </div>
+
+                        <div class="field-player" data-position="rf"
+                             data-player-name="Player Name"
+                             data-player-age="7"
+                             data-player-number="3"
+                             data-player-team="New York Yankees"
+                             data-player-position="Right Field"
+                             data-player-bats="Right"
+                             data-player-throws="Right"
+                             data-player-photo="pictures/player-rf.jpg">
+                            <div class="player-avatar">
+                                <img src="pictures/player-rf.jpg" alt="Right Field" onerror="this.style.display='none'">
+                            </div>
+                            <p class="player-name">PLAYER NAME</p>
+                            <p class="position-label">RF</p>
+                        </div>
+
+                        <div class="field-player" data-position="ss"
+                             data-player-name="Player Name"
+                             data-player-age="7"
+                             data-player-number="4"
+                             data-player-team="Boston Red Sox"
+                             data-player-position="Shortstop"
+                             data-player-bats="Right"
+                             data-player-throws="Right"
+                             data-player-photo="pictures/player-ss.jpg">
+                            <div class="player-avatar">
+                                <img src="pictures/player-ss.jpg" alt="Shortstop" onerror="this.style.display='none'">
+                            </div>
+                            <p class="player-name">PLAYER NAME</p>
+                            <p class="position-label">SS</p>
+                        </div>
+
+                        <div class="field-player" data-position="2b"
+                             data-player-name="Player Name"
+                             data-player-age="7"
+                             data-player-number="5"
+                             data-player-team="Houston Astros"
+                             data-player-position="Second Base"
+                             data-player-bats="Right"
+                             data-player-throws="Right"
+                             data-player-photo="pictures/player-2b.jpg">
+                            <div class="player-avatar">
+                                <img src="pictures/player-2b.jpg" alt="Second Base" onerror="this.style.display='none'">
+                            </div>
+                            <p class="player-name">PLAYER NAME</p>
+                            <p class="position-label">2B</p>
+                        </div>
+
+                        <div class="field-player" data-position="1b"
+                             data-player-name="Player Name"
+                             data-player-age="7"
+                             data-player-number="6"
+                             data-player-team="San Francisco Giants"
+                             data-player-position="First Base"
+                             data-player-bats="Left"
+                             data-player-throws="Left"
+                             data-player-photo="pictures/player-1b.jpg">
+                            <div class="player-avatar">
+                                <img src="pictures/player-1b.jpg" alt="First Base" onerror="this.style.display='none'">
+                            </div>
+                            <p class="player-name">PLAYER NAME</p>
+                            <p class="position-label">1B</p>
+                        </div>
+
+                        <div class="field-player" data-position="p"
+                             data-player-name="Player Name"
+                             data-player-age="7"
+                             data-player-number="7"
+                             data-player-team="Tampa Bay Rays"
+                             data-player-position="Pitcher"
+                             data-player-bats="Right"
+                             data-player-throws="Right"
+                             data-player-photo="pictures/player-p.jpg">
+                            <div class="player-avatar">
+                                <img src="pictures/player-p.jpg" alt="Pitcher" onerror="this.style.display='none'">
+                            </div>
+                            <p class="player-name">PLAYER NAME</p>
+                            <p class="position-label">P</p>
+                        </div>
+
+                        <div class="field-player" data-position="3b"
+                             data-player-name="Player Name"
+                             data-player-age="7"
+                             data-player-number="8"
+                             data-player-team="St. Louis Cardinals"
+                             data-player-position="Third Base"
+                             data-player-bats="Right"
+                             data-player-throws="Right"
+                             data-player-photo="pictures/player-3b.jpg">
+                            <div class="player-avatar">
+                                <img src="pictures/player-3b.jpg" alt="Third Base" onerror="this.style.display='none'">
+                            </div>
+                            <p class="player-name">PLAYER NAME</p>
+                            <p class="position-label">3B</p>
+                        </div>
+
+                        <div class="field-player" data-position="c"
+                             data-player-name="Player Name"
+                             data-player-age="7"
+                             data-player-number="9"
+                             data-player-team="Chicago Cubs"
+                             data-player-position="Catcher"
+                             data-player-bats="Right"
+                             data-player-throws="Right"
+                             data-player-photo="pictures/player-c.jpg">
+                            <div class="player-avatar">
+                                <img src="pictures/player-c.jpg" alt="Catcher" onerror="this.style.display='none'">
+                            </div>
+                            <p class="player-name">PLAYER NAME</p>
+                            <p class="position-label">C</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apparel Section -->
+    <section id="apparel" class="apparel-section">
+        <div class="container">
+            <h2 class="section-title">Team Apparel</h2>
+            <div class="apparel-content">
+                <p>Support the Southern Sluggerz by purchasing official team apparel!</p>
+                <p>Shop jerseys, hats, t-shirts, and more to show your team spirit.</p>
+                <a href="https://www.example.com/shop" target="_blank" class="apparel-button">Visit Apparel Store</a>
+                <p class="apparel-note">Note: Replace the link above with your actual apparel store URL</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch With Us</h2>
+            <div class="contact-wrapper">
+                <div class="contact-form">
+                    <form id="contactForm" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/success.html">
+                        <input type="hidden" name="form-name" value="contact" />
+                        <p class="hidden">
+                            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                        </p>
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Submit Form</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Join the Southern Sluggerz Family</h3>
+                    <p>Ready to be part of a team that values development, discipline, and community? Contact us today to learn more about how your young athlete can join Southern Sluggerz Baseball.</p>
+                    <div class="info-item">
+                        <strong>Location:</strong> Valdosta, Georgia
+                    </div>
+                    <div class="info-item">
+                        <strong>Email:</strong> southernsluggerz2026@yahoo.com
+                    </div>
+                    <div class="info-item">
+                        <strong>Phone:</strong> 229-539-8183
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Southern Sluggerz Baseball. All rights reserved.</p>
+            <p>Building character, one swing at a time | Valdosta, Georgia</p>
+            <p><a href="https://root-foundry.com" target="_blank">Made & Managed by Root Foundry LLC</a></p>
+        </div>
+    </footer>
+
+    <!-- Player Details Modal -->
+    <div id="playerModal" class="player-modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-body">
+                <div class="modal-player-photo">
+                    <img id="modalPlayerImage" src="" alt="Player Photo">
+                </div>
+                <div class="modal-player-info">
+                    <h2 id="modalPlayerName">Player Name</h2>
+                    <div class="modal-player-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Position:</span>
+                            <span id="modalPlayerPosition" class="detail-value">Position</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Jersey #:</span>
+                            <span id="modalPlayerNumber" class="detail-value">0</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Age:</span>
+                            <span id="modalPlayerAge" class="detail-value">7</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Bats:</span>
+                            <span id="modalPlayerBats" class="detail-value">Right</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Throws:</span>
+                            <span id="modalPlayerThrows" class="detail-value">Right</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Favorite Team:</span>
+                            <span id="modalPlayerTeam" class="detail-value">Team Name</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
