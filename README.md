@@ -17,12 +17,24 @@ Your site will be live at a Netlify URL (e.g., `your-site-name.netlify.app`). Yo
 
 ## Features
 
-- **Home Section**: Hero section with custom background image and the tagline "Building character, one swing at a time"
+- **Home Section**: Auto-rotating image carousel with 5 team photos, manual navigation controls, and smooth transitions
 - **About Section**: Mission statement and core values (Player-First Approach, Character Development, Family Environment, Comprehensive Training)
 - **Coaches Section**: Horizontal lineup display with circular photos and detailed bios
-- **Players Section**: Interactive baseball diamond showing player positions with names and photos
+- **Players Section**: Interactive baseball diamond showing player positions with clickable player cards
 - **Apparel Section**: Link to external apparel store
-- **Contact Section**: Contact form and team information
+- **Contact Section**: Netlify-powered contact form with spam protection
+- **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices
+
+## Hero Carousel
+
+The home section features a dynamic image carousel with:
+- 5 rotating team photos showcasing the Southern Sluggerz in action
+- Auto-advance every 5 seconds
+- Previous/Next navigation buttons
+- Dot indicators for quick navigation to specific slides
+- Pause on hover functionality
+- Smooth fade transitions between images
+- Fully responsive controls for mobile devices
 
 ## Baseball Diamond Layout
 
@@ -120,7 +132,30 @@ In `index.html`, find the Apparel Section and update the link:
 ```
 Replace `https://www.example.com/shop` with your actual apparel store URL.
 
-### 4. Update Contact Information
+### 4. Customize Hero Carousel Images
+The hero carousel displays 5 team photos. To change them:
+
+1. Add your images to the `pictures` folder
+2. Edit [index.html](index.html) in the hero section
+3. Update the `background-image` URLs in each `carousel-slide` div:
+
+```html
+<div class="carousel-slide active" style="background-image: url('pictures/your-photo-1.png')"></div>
+<div class="carousel-slide" style="background-image: url('pictures/your-photo-2.png')"></div>
+<div class="carousel-slide" style="background-image: url('pictures/your-photo-3.png')"></div>
+```
+
+**To add more slides:**
+1. Add another `<div class="carousel-slide">` in the HTML
+2. Add a corresponding `<span class="indicator">` in the indicators section
+3. Update the `data-slide` attribute numbers accordingly
+
+**Image recommendations:**
+- Landscape orientation (16:9 or 4:3 ratio)
+- Minimum 1920x1080px for best quality
+- Action shots, team photos, or field images work great
+
+### 5. Update Contact Information
 Edit the Contact Section in `index.html`:
 ```html
 <div class="info-item">
@@ -135,7 +170,7 @@ Edit the Contact Section in `index.html`:
 ```
 Update with your actual contact details.
 
-### 5. Configure Contact Form (Netlify Forms)
+### 6. Configure Contact Form (Netlify Forms)
 The contact form is configured to work with **Netlify Forms** automatically when you deploy to Netlify.
 
 **How it works:**
@@ -160,17 +195,12 @@ Netlify Forms only work when deployed. For local testing, you can:
 - Use Netlify Dev: `netlify dev` command
 - Or temporarily add back a preventDefault handler to test the front-end behavior
 
-### 6. Update Hero Background Image
-The hero section uses a custom background image. To update:
-- Place your image in the `pictures` folder
-- Update [styles.css](styles.css) line 68-69 to point to your image:
-```css
-background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-            url('pictures/your-image-name.jpg') center/cover;
-```
-
 ### 7. Photo Requirements
 Place all team photos in the `pictures` folder with these naming conventions:
+
+**Carousel Images:**
+- Current carousel uses 5 team action photos (can be customized - see section 4)
+- Recommended: 1920x1080px landscape images
 
 **Coach Photos:**
 - `coach1.jpg` - Head Coach (180x180px recommended)
