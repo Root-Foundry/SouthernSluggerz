@@ -1,3 +1,85 @@
+// Hero Carousel Functionality
+const slides = document.querySelectorAll('.carousel-slide');
+const prevBtn = document.querySelector('.carousel-nav.prev');
+const nextBtn = document.querySelector('.carousel-nav.next');
+const indicators = document.querySelectorAll('.indicator');
+let currentSlide = 0;
+let slideInterval;
+
+// Function to show specific slide
+function showSlide(n) {
+    // Remove active class from all slides and indicators
+    slides.forEach(slide => slide.classList.remove('active'));
+    indicators.forEach(indicator => indicator.classList.remove('active'));
+    
+    // Handle wrapping
+    if (n >= slides.length) {
+        currentSlide = 0;
+    } else if (n < 0) {
+        currentSlide = slides.length - 1;
+    } else {
+        currentSlide = n;
+    }
+    
+    // Add active class to current slide and indicator
+    slides[currentSlide].classList.add('active');
+    indicators[currentSlide].classList.add('active');
+}
+
+// Next slide
+function nextSlide() {
+    showSlide(currentSlide + 1);
+}
+
+// Previous slide
+function prevSlide() {
+    showSlide(currentSlide - 1);
+}
+
+// Auto-advance slides every 5 seconds
+function startSlideshow() {
+    slideInterval = setInterval(nextSlide, 5000);
+}
+
+// Stop auto-advance
+function stopSlideshow() {
+    clearInterval(slideInterval);
+}
+
+// Event listeners
+if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', () => {
+        prevSlide();
+        stopSlideshow();
+        startSlideshow(); // Restart timer after manual navigation
+    });
+
+    nextBtn.addEventListener('click', () => {
+        nextSlide();
+        stopSlideshow();
+        startSlideshow(); // Restart timer after manual navigation
+    });
+}
+
+// Indicator click events
+indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+        showSlide(index);
+        stopSlideshow();
+        startSlideshow(); // Restart timer after manual navigation
+    });
+});
+
+// Pause slideshow on hover
+const heroSection = document.querySelector('.hero');
+if (heroSection) {
+    heroSection.addEventListener('mouseenter', stopSlideshow);
+    heroSection.addEventListener('mouseleave', startSlideshow);
+}
+
+// Start the slideshow
+startSlideshow();
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
