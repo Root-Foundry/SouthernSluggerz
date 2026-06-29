@@ -2,6 +2,19 @@
 
 A modern, responsive website for the Southern Sluggerz 7U baseball team, inspired by the main Southern Sluggerz Baseball organization's values and mission.
 
+## 🚀 Quick Deploy to Netlify
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Root-Foundry/SouthernSluggerz)
+
+### Deployment Steps:
+1. Click the "Deploy to Netlify" button above (or go to [Netlify](https://app.netlify.com))
+2. Connect your GitHub account
+3. Select this repository: `Root-Foundry/SouthernSluggerz`
+4. Click "Deploy site"
+5. Once deployed, go to **Site Settings → Forms** to configure email notifications for contact form submissions
+
+Your site will be live at a Netlify URL (e.g., `your-site-name.netlify.app`). You can add a custom domain later.
+
 ## Features
 
 - **Home Section**: Hero section with custom background image and the tagline "Building character, one swing at a time"
