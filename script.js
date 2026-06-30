@@ -132,7 +132,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe cards for animation
-document.querySelectorAll('.coach-position, .value-card, .field-player').forEach(card => {
+document.querySelectorAll('.coach-position, .value-card, .player-card').forEach(card => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(20px)';
     card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -165,10 +165,10 @@ if (contactForm) {
 // Player Modal Functionality
 const playerModal = document.getElementById('playerModal');
 const modalClose = document.querySelector('.modal-close');
-const fieldPlayers = document.querySelectorAll('.field-player');
+const playerCards = document.querySelectorAll('.player-card');
 
 // Open modal when clicking on a player
-fieldPlayers.forEach(player => {
+playerCards.forEach(player => {
     player.addEventListener('click', function() {
         // Get player data from data attributes
         const playerName = this.getAttribute('data-player-name');
