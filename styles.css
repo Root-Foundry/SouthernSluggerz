@@ -428,14 +428,14 @@ section {
     position: relative;
     width: 100%;
     aspect-ratio: 4/3;
-    background: #4a7c4e;
+    background: #ffffff;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 12px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.4);
     overflow: visible;
-    border: 3px solid #8b0000;
+    border: 3px solid #ffffff;
 }
 
 /* Hide pseudo-elements when using background image */
@@ -597,7 +597,7 @@ section {
 }
 
 .submit-button:hover {
-    background: #2d5a3d;
+    background: #cc6600;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
@@ -608,7 +608,7 @@ section {
 
 .contact-info h3 {
     font-size: 1.8rem;
-    color: #1a472a;
+    color: #cc6600;
     margin-bottom: 1.5rem;
 }
 
@@ -634,12 +634,12 @@ section {
 
 /* Apparel Section */
 .apparel-section {
-    background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);
+    background: linear-gradient(135deg, #3b1e00 0%, #000000 100%);
     color: white;
 }
 
 .apparel-section .section-title {
-    color: white;
+    color: #cc6600;
 }
 
 .apparel-section .section-title::after {
