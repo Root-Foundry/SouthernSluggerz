@@ -1,0 +1,11 @@
+# Robots.txt for Southern Sluggerz 7U Baseball Team
+# Allow all search engines to crawl the site
+
+User-agent: *
+Disallow: 
+
+# Sitemap location
+Sitemap: https://southernsluggerz7u.com/sitemap.xml
+
+# Crawl-delay to be respectful of server resources
+Crawl-delay: 1
