@@ -18,6 +18,7 @@ Your site will be live at a Netlify URL (e.g., `your-site-name.netlify.app`). Yo
 ## Features
 
 - **Home Section**: Auto-rotating image carousel with 5 team photos, manual navigation controls, and smooth transitions
+- **Donation Button**: Prominent call-to-action button linking to GoFundMe campaign in hero section and footer
 - **About Section**: Mission statement and core values (Player-First Approach, Character Development, Family Environment, Comprehensive Training)
 - **Coaches Section**: Horizontal lineup display with circular photos and detailed bios
 - **Players Section**: Interactive baseball diamond showing player positions with clickable player cards
@@ -25,6 +26,14 @@ Your site will be live at a Netlify URL (e.g., `your-site-name.netlify.app`). Yo
 - **Contact Section**: Netlify-powered contact form with spam protection
 - **Footer**: Modern multi-column layout with About, Quick Links, Contact Info, and Social Media sections
 - **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices
+
+## Donation Support
+
+The website features prominent donation buttons that link to the team's GoFundMe campaign:
+- **Hero Section**: Gold gradient button with animated heart icon and pulsing effect
+- **Footer**: Matching donation button in the "About Southern Sluggerz" section
+- Both buttons are fully responsive and optimized for mobile devices
+- Eye-catching design with hover animations to encourage support
 
 ## Hero Carousel
 
@@ -126,14 +135,31 @@ Example player entry:
 
 When users click on a player's avatar, a modal popup will display all the player's details in a professional card format.
 
-### 3. Connect External Apparel Store
+### 3. Update Donation Link
+The donation buttons are currently linked to the team's GoFundMe campaign. To update the link:
+
+1. Edit [index.html](index.html)
+2. Find both donation button links (one in hero section, one in footer)
+3. Update the `href` attribute:
+
+```html
+<!-- Hero section donation button -->
+<a href="https://www.gofundme.com/f/your-campaign-url" target="_blank" class="donate-button">
+
+<!-- Footer donation button -->
+<a href="https://www.gofundme.com/f/your-campaign-url" target="_blank" class="footer-donate-button">
+```
+
+Current GoFundMe link: `https://www.gofundme.com/f/support-southern-sluggerz-7u-baseball`
+
+### 4. Connect External Apparel Store
 In `index.html`, find the Apparel Section and update the link:
 ```html
 <a href="https://www.example.com/shop" target="_blank" class="apparel-button">Visit Apparel Store</a>
 ```
 Replace `https://www.example.com/shop` with your actual apparel store URL.
 
-### 4. Customize Hero Carousel Images
+### 5. Customize Hero Carousel Images
 The hero carousel displays 5 team photos. To change them:
 
 1. Add your images to the `pictures` folder
@@ -156,7 +182,7 @@ The hero carousel displays 5 team photos. To change them:
 - Minimum 1920x1080px for best quality
 - Action shots, team photos, or field images work great
 
-### 5. Update Contact Information
+### 6. Update Contact Information
 Edit the Contact Section in `index.html`:
 ```html
 <div class="info-item">
@@ -171,7 +197,7 @@ Edit the Contact Section in `index.html`:
 ```
 Update with your actual contact details.
 
-### 6. Configure Contact Form (Netlify Forms)
+### 7. Configure Contact Form (Netlify Forms)
 The contact form is configured to work with **Netlify Forms** automatically when you deploy to Netlify.
 
 **How it works:**
@@ -196,7 +222,7 @@ Netlify Forms only work when deployed. For local testing, you can:
 - Use Netlify Dev: `netlify dev` command
 - Or temporarily add back a preventDefault handler to test the front-end behavior
 
-### 7. Photo Requirements
+### 8. Photo Requirements
 Place all team photos in the `pictures` folder with these naming conventions:
 
 **Carousel Images:**
@@ -226,7 +252,7 @@ Place all team photos in the `pictures` folder with these naming conventions:
 
 If photos are not found, the website displays placeholder icons (baseball emoji for players, person icon for coaches).
 
-### 8. Customizing the Baseball Field (Optional)
+### 9. Customizing the Baseball Field (Optional)
 The baseball field currently uses `baseball-field.svg` with a stadium-style design. To use your own stadium image:
 
 1. Find or create a baseball stadium image (wide angle, 1200x900px or 4:3 aspect ratio recommended)
@@ -238,7 +264,7 @@ The baseball field currently uses `baseball-field.svg` with a stadium-style desi
    
 The SVG file provides a stadium atmosphere with a blue diamond infield, white baselines, and red stadium backdrop - similar to a professional ballpark view.
 
-### 9. Customizing Social Media Links
+### 10. Customizing Social Media Links
 The footer includes social media icons for Facebook, Instagram, and Twitter. To update these:
 
 1. Edit [index.html](index.html) in the footer section
