@@ -162,4 +162,88 @@ if (contactForm) {
     });
 }
 
+// Gallery Carousel Functionality
+const gallerySlides = document.querySelectorAll('.gallery-carousel-slide');
+const galleryPrevBtn = document.querySelector('.gallery-nav.prev');
+const galleryNextBtn = document.querySelector('.gallery-nav.next');
+const galleryIndicators = document.querySelectorAll('.gallery-indicator');
+let currentGallerySlide = 0;
+let galleryInterval;
+
+// Function to show specific gallery slide
+function showGallerySlide(n) {
+    // Remove active class from all slides and indicators
+    gallerySlides.forEach(slide => slide.classList.remove('active'));
+    galleryIndicators.forEach(indicator => indicator.classList.remove('active'));
+    
+    // Handle wrapping
+    if (n >= gallerySlides.length) {
+        currentGallerySlide = 0;
+    } else if (n < 0) {
+        currentGallerySlide = gallerySlides.length - 1;
+    } else {
+        currentGallerySlide = n;
+    }
+    
+    // Add active class to current slide and indicator
+    gallerySlides[currentGallerySlide].classList.add('active');
+    galleryIndicators[currentGallerySlide].classList.add('active');
+}
+
+// Next gallery slide
+function nextGallerySlide() {
+    showGallerySlide(currentGallerySlide + 1);
+}
+
+// Previous gallery slide
+function prevGallerySlide() {
+    showGallerySlide(currentGallerySlide - 1);
+}
+
+// Auto-advance gallery slides every 4 seconds
+function startGallerySlideshow() {
+    galleryInterval = setInterval(nextGallerySlide, 4000);
+}
+
+// Stop gallery auto-advance
+function stopGallerySlideshow() {
+    clearInterval(galleryInterval);
+}
+
+// Gallery event listeners
+if (galleryPrevBtn && galleryNextBtn) {
+    galleryPrevBtn.addEventListener('click', () => {
+        prevGallerySlide();
+        stopGallerySlideshow();
+        startGallerySlideshow(); // Restart timer after manual navigation
+    });
+
+    galleryNextBtn.addEventListener('click', () => {
+        nextGallerySlide();
+        stopGallerySlideshow();
+        startGallerySlideshow(); // Restart timer after manual navigation
+    });
+}
+
+// Gallery indicator click events
+galleryIndicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+        showGallerySlide(index);
+        stopGallerySlideshow();
+        startGallerySlideshow(); // Restart timer after manual navigation
+    });
+});
+
+// Pause gallery slideshow on hover
+const gallerySection = document.querySelector('.gallery-carousel-wrapper');
+if (gallerySection) {
+    gallerySection.addEventListener('mouseenter', stopGallerySlideshow);
+    gallerySection.addEventListener('mouseleave', startGallerySlideshow);
+}
+
+// Start the gallery slideshow
+if (gallerySlides.length > 0) {
+    startGallerySlideshow();
+}
+
 
