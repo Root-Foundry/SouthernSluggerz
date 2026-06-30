@@ -483,7 +483,6 @@ section {
 
 .player-card {
     text-align: center;
-    cursor: pointer;
     transition: all 0.3s ease;
     animation: fadeInUp 0.6s ease forwards;
     opacity: 0;
