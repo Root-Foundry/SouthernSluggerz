@@ -23,6 +23,7 @@ Your site will be live at a Netlify URL (e.g., `your-site-name.netlify.app`). Yo
 - **Players Section**: Interactive baseball diamond showing player positions with clickable player cards
 - **Apparel Section**: Link to external apparel store
 - **Contact Section**: Netlify-powered contact form with spam protection
+- **Footer**: Modern multi-column layout with About, Quick Links, Contact Info, and Social Media sections
 - **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices
 
 ## Hero Carousel
@@ -236,6 +237,21 @@ The baseball field currently uses `baseball-field.svg` with a stadium-style desi
    ```
    
 The SVG file provides a stadium atmosphere with a blue diamond infield, white baselines, and red stadium backdrop - similar to a professional ballpark view.
+
+### 9. Customizing Social Media Links
+The footer includes social media icons for Facebook, Instagram, and Twitter. To update these:
+
+1. Edit [index.html](index.html) in the footer section
+2. Replace the `#` placeholders with your actual social media URLs:
+
+```html
+<a href="https://facebook.com/yourpage" target="_blank" aria-label="Facebook" class="social-icon">
+<a href="https://instagram.com/yourhandle" target="_blank" aria-label="Instagram" class="social-icon">
+<a href="https://twitter.com/yourhandle" target="_blank" aria-label="Twitter" class="social-icon">
+```
+
+To add more social networks (YouTube, TikTok, etc.), copy one of the existing `<a>` tags and replace the SVG icon with the appropriate icon code from [Simple Icons](https://simpleicons.org/).
+
 ## Viewing the Website
 
 Simply open `index.html` in a web browser to view the website locally.
