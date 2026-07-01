@@ -598,7 +598,7 @@ section {
 .sponsor-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(26, 71, 42, 0.15);
-    border-color: #1a472a;
+    border-color: #cc6600;
 }
 
 .sponsor-logo {
@@ -624,7 +624,7 @@ section {
 }
 
 .sponsor-cta {
-    background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);
+    background: linear-gradient(135deg, #000000 0%, #3a1d00 100%);
     color: white;
     padding: 4rem 3rem;
     border-radius: 15px;
@@ -636,7 +636,7 @@ section {
 .sponsor-cta h3 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
-    color: #FFD700;
+    color: #cc6600;
 }
 
 .sponsor-cta p {
