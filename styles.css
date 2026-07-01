@@ -572,7 +572,7 @@ section {
 
 /* Sponsors Section */
 .sponsors-section {
-    background: #fff;
+    background: #f8f9fa;
     padding: 6rem 0;
 }
 
@@ -626,10 +626,11 @@ section {
 .sponsor-cta {
     background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);
     color: white;
-    padding: 3rem;
+    padding: 4rem 3rem;
     border-radius: 15px;
     text-align: center;
-    margin-top: 4rem;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .sponsor-cta h3 {
@@ -640,8 +641,18 @@ section {
 
 .sponsor-cta p {
     font-size: 1.1rem;
-    margin-bottom: 2rem;
-    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.sponsor-cta ul {
+    list-style-position: inside;
+    color: white;
+}
+
+.sponsor-cta ul li {
+    font-size: 1.05rem;
+    margin: 0.5rem 0;
 }
 
 .sponsor-button {
