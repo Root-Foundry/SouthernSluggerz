@@ -674,6 +674,67 @@ section {
     box-shadow: 0 6px 20px rgba(204, 102, 0, 0.4);
 }
 
+/* Apparel Section */
+.apparel-section {
+    background: #fff;
+    padding: 6rem 0;
+}
+
+.apparel-cta {
+    background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);
+    color: white;
+    padding: 4rem 3rem;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.apparel-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.apparel-cta h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #FFD700;
+}
+
+.apparel-cta p {
+    font-size: 1.15rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.apparel-button {
+    display: inline-block;
+    background: #cc6600;
+    color: white;
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(204, 102, 0, 0.3);
+    margin-bottom: 1.5rem;
+}
+
+.apparel-button:hover {
+    background: #ff8800;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(204, 102, 0, 0.4);
+}
+
+.apparel-note {
+    font-size: 0.9rem;
+    color: #e0e0e0;
+    margin-top: 1rem;
+    font-style: italic;
+}
+
 /* Contact Section */
 .contact-section {
     background: #f8f9fa;
@@ -1449,6 +1510,20 @@ footer {
 
     .sponsor-cta h3 {
         font-size: 1.5rem;
+    }
+
+    /* Apparel Section Responsive */
+    .apparel-cta {
+        padding: 2.5rem 2rem;
+    }
+
+    .apparel-cta h3 {
+        font-size: 1.6rem;
+    }
+
+    .apparel-button {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
     }
 
     .section-subtitle {
