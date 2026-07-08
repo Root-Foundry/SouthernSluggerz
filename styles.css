@@ -680,6 +680,13 @@ section {
     padding: 6rem 0;
 }
 
+.apparel-section .section-subtitle {
+    color: #1a472a;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
 .apparel-cta {
     background: linear-gradient(135deg, #000000 0%, #cc6600 100%);
     color: white;
