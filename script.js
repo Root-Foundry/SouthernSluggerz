@@ -163,10 +163,18 @@ if (contactForm) {
 }
 
 // Gallery Carousel Functionality
-const gallerySlides = document.querySelectorAll('.gallery-carousel-slide');
+// Slide images come from pictures/Gallery/manifest.json, which is regenerated
+// automatically from the contents of pictures/Gallery every time the site is
+// deployed (see generate-gallery-manifest.js + firebase.json "predeploy").
+// Just drop a photo in that folder - no code changes needed.
+const galleryTrack = document.querySelector('.gallery-carousel');
+const galleryIndicatorsWrapper = document.querySelector('.gallery-indicators');
 const galleryPrevBtn = document.querySelector('.gallery-nav.prev');
 const galleryNextBtn = document.querySelector('.gallery-nav.next');
-const galleryIndicators = document.querySelectorAll('.gallery-indicator');
+const gallerySection = document.querySelector('.gallery-carousel-wrapper');
+
+let gallerySlides = [];
+let galleryIndicators = [];
 let currentGallerySlide = 0;
 let galleryInterval;
 
@@ -175,7 +183,7 @@ function showGallerySlide(n) {
     // Remove active class from all slides and indicators
     gallerySlides.forEach(slide => slide.classList.remove('active'));
     galleryIndicators.forEach(indicator => indicator.classList.remove('active'));
-    
+
     // Handle wrapping
     if (n >= gallerySlides.length) {
         currentGallerySlide = 0;
@@ -184,7 +192,7 @@ function showGallerySlide(n) {
     } else {
         currentGallerySlide = n;
     }
-    
+
     // Add active class to current slide and indicator
     gallerySlides[currentGallerySlide].classList.add('active');
     galleryIndicators[currentGallerySlide].classList.add('active');
@@ -210,40 +218,71 @@ function stopGallerySlideshow() {
     clearInterval(galleryInterval);
 }
 
-// Gallery event listeners
-if (galleryPrevBtn && galleryNextBtn) {
-    galleryPrevBtn.addEventListener('click', () => {
-        prevGallerySlide();
-        stopGallerySlideshow();
-        startGallerySlideshow(); // Restart timer after manual navigation
+// Build the carousel markup from the manifest, then wire up the same
+// nav/indicator/autoplay behavior the carousel always had.
+async function initGalleryCarousel() {
+    if (!galleryTrack || !galleryIndicatorsWrapper) return;
+
+    let files = [];
+    try {
+        const response = await fetch('pictures/Gallery/manifest.json', { cache: 'no-store' });
+        files = await response.json();
+    } catch (err) {
+        console.error('Could not load gallery manifest:', err);
+        return;
+    }
+
+    if (!Array.isArray(files) || files.length === 0) return;
+
+    galleryTrack.innerHTML = files.map((file, index) => {
+        const src = `pictures/Gallery/${encodeURIComponent(file)}`;
+        return `<div class="gallery-carousel-slide${index === 0 ? ' active' : ''}" style="background-image: url('${src}')"></div>`;
+    }).join('');
+
+    galleryIndicatorsWrapper.innerHTML = files.map((_, index) =>
+        `<span class="gallery-indicator${index === 0 ? ' active' : ''}" data-slide="${index}"></span>`
+    ).join('');
+
+    gallerySlides = Array.from(document.querySelectorAll('.gallery-carousel-slide'));
+    galleryIndicators = Array.from(document.querySelectorAll('.gallery-indicator'));
+    currentGallerySlide = 0;
+
+    // Gallery event listeners
+    if (galleryPrevBtn && galleryNextBtn) {
+        galleryPrevBtn.addEventListener('click', () => {
+            prevGallerySlide();
+            stopGallerySlideshow();
+            startGallerySlideshow(); // Restart timer after manual navigation
+        });
+
+        galleryNextBtn.addEventListener('click', () => {
+            nextGallerySlide();
+            stopGallerySlideshow();
+            startGallerySlideshow(); // Restart timer after manual navigation
+        });
+    }
+
+    // Gallery indicator click events
+    galleryIndicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            showGallerySlide(index);
+            stopGallerySlideshow();
+            startGallerySlideshow(); // Restart timer after manual navigation
+        });
     });
 
-    galleryNextBtn.addEventListener('click', () => {
-        nextGallerySlide();
-        stopGallerySlideshow();
-        startGallerySlideshow(); // Restart timer after manual navigation
-    });
+    // Pause gallery slideshow on hover
+    if (gallerySection) {
+        gallerySection.addEventListener('mouseenter', stopGallerySlideshow);
+        gallerySection.addEventListener('mouseleave', startGallerySlideshow);
+    }
+
+    // Start the gallery slideshow
+    if (gallerySlides.length > 0) {
+        startGallerySlideshow();
+    }
 }
 
-// Gallery indicator click events
-galleryIndicators.forEach((indicator, index) => {
-    indicator.addEventListener('click', () => {
-        showGallerySlide(index);
-        stopGallerySlideshow();
-        startGallerySlideshow(); // Restart timer after manual navigation
-    });
-});
-
-// Pause gallery slideshow on hover
-const gallerySection = document.querySelector('.gallery-carousel-wrapper');
-if (gallerySection) {
-    gallerySection.addEventListener('mouseenter', stopGallerySlideshow);
-    gallerySection.addEventListener('mouseleave', startGallerySlideshow);
-}
-
-// Start the gallery slideshow
-if (gallerySlides.length > 0) {
-    startGallerySlideshow();
-}
+initGalleryCarousel();
 
 
