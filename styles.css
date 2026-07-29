@@ -575,11 +575,58 @@ section {
     padding: 6rem 0;
 }
 
+.sponsor-tiers {
+    margin: 3rem 0;
+}
+
+.sponsor-tier {
+    margin-bottom: 3.5rem;
+}
+
+.sponsor-tier-title {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #1a472a;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+}
+
 .sponsors-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 3rem;
-    margin: 4rem 0;
+    margin: 0;
+}
+
+/* MVP tier: largest, most prominent */
+.sponsor-tier-mvp .sponsors-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.sponsor-tier-mvp .sponsor-card {
+    min-height: 240px;
+    padding: 2.5rem;
+    border-color: #cc6600;
+    box-shadow: 0 8px 20px rgba(204, 102, 0, 0.15);
+}
+
+.sponsor-tier-mvp .sponsor-logo img {
+    max-height: 180px;
+}
+
+/* All-Star tier: medium */
+.sponsor-tier-all-star .sponsor-card {
+    min-height: 200px;
+}
+
+.sponsor-tier-all-star .sponsor-logo img {
+    max-height: 150px;
+}
+
+/* Team tier: base size */
+.sponsor-tier-team .sponsor-logo img {
+    max-height: 110px;
 }
 
 .sponsor-card {

@@ -285,4 +285,48 @@ async function initGalleryCarousel() {
 
 initGalleryCarousel();
 
+// Sponsor Tiers
+// Sponsor logos come from pictures/Sponsors/<Tier>/, and the tier list/order
+// comes from pictures/Sponsors/manifest.json, which is regenerated automatically
+// from that folder structure every time the site is deployed (see
+// generate-sponsors-manifest.js + firebase.json "predeploy"). To add a sponsor,
+// drop their logo into the matching tier folder - no code changes needed.
+async function initSponsorTiers() {
+    const tiersContainer = document.querySelector('.sponsor-tiers');
+    if (!tiersContainer) return;
+
+    let tiers = [];
+    try {
+        const response = await fetch('pictures/Sponsors/manifest.json', { cache: 'no-store' });
+        tiers = await response.json();
+    } catch (err) {
+        console.error('Could not load sponsors manifest:', err);
+        return;
+    }
+
+    if (!Array.isArray(tiers) || tiers.length === 0) return;
+
+    tiersContainer.innerHTML = tiers.map(({ tier, files }) => {
+        const tierSlug = tier.toLowerCase().replace(/\s+/g, '-');
+        const cards = files.map(file => {
+            const src = `pictures/Sponsors/${encodeURIComponent(tier)}/${encodeURIComponent(file)}`;
+            const name = file.replace(/\.[^.]+$/, '').replace(/([a-z])([A-Z])/g, '$1 $2');
+            return `
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">
+                        <img src="${src}" alt="${name}" loading="lazy">
+                    </div>
+                </div>`;
+        }).join('');
+
+        return `
+            <div class="sponsor-tier sponsor-tier-${tierSlug}">
+                <h3 class="sponsor-tier-title">${tier} Sponsors</h3>
+                <div class="sponsors-grid">${cards}</div>
+            </div>`;
+    }).join('');
+}
+
+initSponsorTiers();
+
 

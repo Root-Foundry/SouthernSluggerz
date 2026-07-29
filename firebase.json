@@ -2,7 +2,8 @@
   "hosting": {
     "public": ".",
     "predeploy": [
-      "node generate-gallery-manifest.js"
+      "node generate-gallery-manifest.js",
+      "node generate-sponsors-manifest.js"
     ],
     "ignore": [
       "firebase.json",
