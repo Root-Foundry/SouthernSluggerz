@@ -1,17 +1,33 @@
 // Hero Carousel Functionality
-const slides = document.querySelectorAll('.carousel-slide');
+// Hero slides come from pictures/Gallery/manifest.json - the same source the
+// Team Gallery carousel uses - shuffled into a random order on every page
+// load. Drop a photo into pictures/Gallery and it can show up here too, no
+// code changes needed.
+const heroCarouselTrack = document.querySelector('.hero-carousel');
+const heroIndicatorsWrapper = document.querySelector('.carousel-indicators');
 const prevBtn = document.querySelector('.carousel-nav.prev');
 const nextBtn = document.querySelector('.carousel-nav.next');
-const indicators = document.querySelectorAll('.indicator');
+const heroSection = document.querySelector('.hero');
+
+let slides = [];
+let indicators = [];
 let currentSlide = 0;
 let slideInterval;
+
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
 
 // Function to show specific slide
 function showSlide(n) {
     // Remove active class from all slides and indicators
     slides.forEach(slide => slide.classList.remove('active'));
     indicators.forEach(indicator => indicator.classList.remove('active'));
-    
+
     // Handle wrapping
     if (n >= slides.length) {
         currentSlide = 0;
@@ -20,7 +36,7 @@ function showSlide(n) {
     } else {
         currentSlide = n;
     }
-    
+
     // Add active class to current slide and indicator
     slides[currentSlide].classList.add('active');
     indicators[currentSlide].classList.add('active');
@@ -46,39 +62,72 @@ function stopSlideshow() {
     clearInterval(slideInterval);
 }
 
-// Event listeners
-if (prevBtn && nextBtn) {
-    prevBtn.addEventListener('click', () => {
-        prevSlide();
-        stopSlideshow();
-        startSlideshow(); // Restart timer after manual navigation
+// Build the carousel markup from the (shuffled) manifest, then wire up the
+// same nav/indicator/autoplay behavior the carousel always had.
+async function initHeroCarousel() {
+    if (!heroCarouselTrack || !heroIndicatorsWrapper) return;
+
+    let files = [];
+    try {
+        const response = await fetch('pictures/Gallery/manifest.json', { cache: 'no-store' });
+        files = await response.json();
+    } catch (err) {
+        console.error('Could not load hero carousel manifest:', err);
+        return;
+    }
+
+    if (!Array.isArray(files) || files.length === 0) return;
+
+    const shuffled = shuffle(files.slice());
+
+    heroCarouselTrack.innerHTML = shuffled.map((file, index) => {
+        const src = `pictures/Gallery/${encodeURIComponent(file)}`;
+        return `<div class="carousel-slide${index === 0 ? ' active' : ''}" style="background-image: url('${src}')"></div>`;
+    }).join('');
+
+    heroIndicatorsWrapper.innerHTML = shuffled.map((_, index) =>
+        `<span class="indicator${index === 0 ? ' active' : ''}" data-slide="${index}"></span>`
+    ).join('');
+
+    slides = Array.from(document.querySelectorAll('.carousel-slide'));
+    indicators = Array.from(document.querySelectorAll('.indicator'));
+    currentSlide = 0;
+
+    // Event listeners
+    if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            stopSlideshow();
+            startSlideshow(); // Restart timer after manual navigation
+        });
+
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            stopSlideshow();
+            startSlideshow(); // Restart timer after manual navigation
+        });
+    }
+
+    // Indicator click events
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            showSlide(index);
+            stopSlideshow();
+            startSlideshow(); // Restart timer after manual navigation
+        });
     });
 
-    nextBtn.addEventListener('click', () => {
-        nextSlide();
-        stopSlideshow();
-        startSlideshow(); // Restart timer after manual navigation
-    });
+    // Pause slideshow on hover
+    if (heroSection) {
+        heroSection.addEventListener('mouseenter', stopSlideshow);
+        heroSection.addEventListener('mouseleave', startSlideshow);
+    }
+
+    // Start the slideshow
+    startSlideshow();
 }
 
-// Indicator click events
-indicators.forEach((indicator, index) => {
-    indicator.addEventListener('click', () => {
-        showSlide(index);
-        stopSlideshow();
-        startSlideshow(); // Restart timer after manual navigation
-    });
-});
-
-// Pause slideshow on hover
-const heroSection = document.querySelector('.hero');
-if (heroSection) {
-    heroSection.addEventListener('mouseenter', stopSlideshow);
-    heroSection.addEventListener('mouseleave', startSlideshow);
-}
-
-// Start the slideshow
-startSlideshow();
+initHeroCarousel();
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
